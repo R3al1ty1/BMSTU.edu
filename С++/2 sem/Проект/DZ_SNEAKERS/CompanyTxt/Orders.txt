@@ -1,0 +1,6 @@
+Orders|OrderID
+CustomerID|String|8|OrderDate|DBDate|12|OrderID|Int32|8|
+   RICMA|    2.1.2021|       1
+   SANTG|   24.1.2020|       3
+   ROMEY|    2.2.2021|       4
+   IVSID|   25.5.2021|       2

@@ -1,0 +1,8 @@
+﻿Построение начато 09.06.2022 14:12:19.
+     1>Проект "C:\Users\jdmsh\Desktop\Практика\Lab4_2\Lab4_2.vcxproj" в узле 2 (целевые объекты Build).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.Cpp.Platform.targets(44,5): error MSB8020: The builds tools for v142 (Platform Toolset = 'v142') cannot be found. To build using the v142 build tools, either click the Project menu or right-click the solution, and then select "Update VC++ Projects...". Install v142 to build using the v142 build tools.
+     1>Построение проекта "C:\Users\jdmsh\Desktop\Практика\Lab4_2\Lab4_2.vcxproj" завершено (целевые объекты Build) с ошибкой.
+
+Сбой построения.
+
+Затраченное время: 00:00:00.09

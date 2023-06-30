@@ -1,0 +1,19 @@
+﻿Сборка начата 09.02.2021 17:47:25.
+     1>Проект "D:\temp\pvr\lab1\MyExecRefsLib_1\MyExecRefsLib_1\MyExecRefsLib_1.vcxproj" в узле 2 (целевые объекты Build).
+     1>InitializeBuildStatus:
+         Создание "Debug\MyExecRefsLib_1.unsuccessfulbuild", так как было задано "AlwaysCreate".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ID:\temp\pvr\lab1\MyExecRefsLib_1\MyExecRefsLib_1\ /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\StaticLibrary\MyExecRefsLib\MyExecRefsLib1.cpp
+         MyExecRefsLib1.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\temp\pvr\lab1\MyExecRefsLib_1\Debug\MyExecRefsLib_1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\temp\pvr\lab1\MyExecRefsLib_1\Debug\MyExecRefsLib_1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\temp\pvr\lab1\MyExecRefsLib_1\Debug\MyExecRefsLib_1.lib" /MACHINE:X86 Debug\MyExecRefsLib1.obj
+         MathFuncsLib.lib
+         MyExecRefsLib_1.vcxproj -> D:\temp\pvr\lab1\MyExecRefsLib_1\Debug\MyExecRefsLib_1.exe
+       FinalizeBuildStatus:
+         Файл "Debug\MyExecRefsLib_1.unsuccessfulbuild" удаляется.
+         Обращение к "Debug\MyExecRefsLib_1.lastbuildstate".
+     1>Построение проекта "D:\temp\pvr\lab1\MyExecRefsLib_1\MyExecRefsLib_1\MyExecRefsLib_1.vcxproj" завершено (целевые объекты Build).
+
+Сборка успешно завершена.
+
+Затраченное время: 00:00:01.74

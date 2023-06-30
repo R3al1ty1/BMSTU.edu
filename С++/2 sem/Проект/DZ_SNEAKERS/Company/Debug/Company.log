@@ -1,0 +1,21 @@
+﻿Построение начато 07.06.2022 13:29:23.
+     1>Проект "D:\plabs — копия — копия — копия\DZ_SNEAKERS\Company\Company.vcxproj" в узле 2 (целевые объекты Build).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>d:\plabs — копия — копия — копия\dz_sneakers\company\main.cpp(307): warning C4018: <: несоответствие типов со знаком и без знака
+     1>d:\plabs — копия — копия — копия\dz_sneakers\company\main.cpp(310): warning C4018: <: несоответствие типов со знаком и без знака
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\plabs — копия — копия — копия\DZ_SNEAKERS\Debug\Company.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\plabs — копия — копия — копия\DZ_SNEAKERS\Debug\Company.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\plabs — копия — копия — копия\DZ_SNEAKERS\Debug\Company.lib" /MACHINE:X86 Debug\main.obj
+         dbmsLib5.lib
+         LINK : не найден или не выполнена сборка D:\plabs — копия — копия — копия\DZ_SNEAKERS\Debug\Company.exe при последней инкрементной компоновке; выполняется полная компоновка
+     1>dbmsLib5.lib(DBDate5.obj) : warning LNK4099: "vc110.pdb" PDB не найден с "dbmsLib5.lib(DBDate5.obj)" или на "D:\plabs — копия — копия — копия\DZ_SNEAKERS\Debug\vc110.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
+     1>dbmsLib5.lib(DBTableBin.obj) : warning LNK4099: "vc110.pdb" PDB не найден с "dbmsLib5.lib(DBTableBin.obj)" или на "D:\plabs — копия — копия — копия\DZ_SNEAKERS\Debug\vc110.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
+     1>dbmsLib5.lib(DBTableSet.obj) : warning LNK4099: "vc110.pdb" PDB не найден с "dbmsLib5.lib(DBTableSet.obj)" или на "D:\plabs — копия — копия — копия\DZ_SNEAKERS\Debug\vc110.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
+     1>dbmsLib5.lib(DBTableTxt5.obj) : warning LNK4099: "vc110.pdb" PDB не найден с "dbmsLib5.lib(DBTableTxt5.obj)" или на "D:\plabs — копия — копия — копия\DZ_SNEAKERS\Debug\vc110.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
+         Company.vcxproj -> D:\plabs — копия — копия — копия\DZ_SNEAKERS\Debug\Company.exe
+     1>Построение проекта "D:\plabs — копия — копия — копия\DZ_SNEAKERS\Company\Company.vcxproj" завершено (целевые объекты Build).
+
+Построение успешно завершено.
+
+Затраченное время: 00:00:07.44

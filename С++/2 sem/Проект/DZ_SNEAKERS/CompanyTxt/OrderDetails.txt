@@ -1,0 +1,10 @@
+OrderDetails|NoPrimaryKey
+OrderID|Int32|8|ProductID|String|14|Quantity|Int32|8|TotalAmount|Double|12
+       1|          Nike|      32|      105.15
+       1|        Adidas|      79|      137.88
+       2|    Balenciaga|       5|         309
+       3|          Puma|      34|       11.31
+       3|        Reebok|     131|      105.15
+       3|   New Balance|      20|        32.6
+       4|         Asics|       7|          84
+       4|    Timberland|       6|      275.76

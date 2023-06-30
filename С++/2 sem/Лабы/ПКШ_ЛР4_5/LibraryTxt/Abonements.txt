@@ -1,0 +1,2 @@
+Abonements|NoPrimaryKey
+BookID|Int32|8|DateIn|DBDate|12|DateOut|DBDate|12|StudentID|Int32|8

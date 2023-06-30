@@ -1,0 +1,353 @@
+PSQL Query save
+
+—Лабораторная работа №2
+
+SELECT participant_id, full_name FROM participant ORDER BY participant_id DESC LIMIT 5;
+
+SELECT * FROM participant WHERE sex='male';
+
+SELECT vehicle_id FROM vehicle GROUP BY vehicle_id
+HAVING accident_number < 1;
+
+SELECT * FROM participant
+WHERE bday BETWEEN '1990-12-01' AND '1999-12-01';
+
+SELECT * FROM vehicle WHERE accident_number IN(1,2);
+
+SELECT * FROM participant WHERE full_name LIKE '%ч'
+
+SELECT * FROM vehicle WHERE vin IS NULL;
+
+SELECT participant.participant_id, full_name, bday
+FROM participant
+INNER JOIN participant_processing ON participant.participant_id = participant_processing.participant_id
+GROUP BY participant.participant_id, full_name
+ORDER BY bday DESC
+LIMIT(7)
+
+SELECT phone FROM participant WHERE EXISTS (SELECT * FROM participant WHERE full_name = 'Бенц Ян Константинович');
+
+SELECT insurance_id, rating FROM insurance WHERE clients_number > 50000
+UNION
+SELECT i.insurance_id, rating FROM insurance as i join vehicle as v on (i.insurance_id = v.insurance_id) JOIN participant_processing ON (v.vehicle_id=participant_processing.vehicle_id)
+WHERE v.accident_number = 1
+ORDER BY rating;
+
+SELECT insurance.insurance_id,
+      CASE WHEN insurance.clients_number >60000 THEN 'deal'
+           ELSE 'pass'
+      END
+FROM insurance left join vehicle on(insurance.insurance_id = vehicle.insurance_id)
+GROUP BY insurance.insurance_id;
+
+
+
+--Лабораторная работа №3
+
+
+
+CREATE VIEW vehicles_participants AS
+SELECT * FROM participant_processing WHERE accident_id < 3;
+
+ALTER TABLE vehicles_participants RENAME COLUMN group_id to gr_id;
+
+SELECT * FROM vehicles_participants;
+
+CREATE OR REPLACE VIEW vehicles_participants (gr_id) AS
+SELECT * FROM participant_processing WHERE vehicle_id < 5;
+
+ALTER VIEW vehicles_participants SET (check_option='cascaded');
+
+INSERT INTO vehicles_participants VALUES (14,6,1,6);
+DELETE FROM vehicles_participants WHERE gr_id = 14;
+
+SELECT * FROM participant_processing;
+
+DROP VIEW vehicles_participants;
+
+CREATE VIEW OR REPLACE vehicles_participants AS
+SELECT * FROM participant_processing
+JOIN participant USING(participant_id)
+JOIN vehicle USING(vehicle_id)
+WHERE (accident_id < 3) WITH CASCADED CHECK OPTION;
+
+SELECT * FROM vehicles_participants;
+
+
+
+
+
+CREATE ROLE "read_only_role";
+CREATE ROLE "read_write_role";
+
+GRANT SELECT ON TABLE participant TO read_only_role;
+GRANT SELECT, INSERT, UPDATE, DELETE on TABLE participant TO read_write_role;
+
+SELECT * FROM participant;
+
+REVOKE read_only_role FROM user1;
+GRANT read_write_role TO user1;
+
+GRANT ALL ON SCHEMA PUBLIC TO readwrite_user;
+
+CREATE TABLE test (id SERIAL PRIMARY KEY, name VARCHAR(50));
+GRANT ALL PRIVILEGES ON TABLE participant TO readwrite_user;
+REVOKE INSERT ON TABLE participant FROM readwrite_user;
+DROP TABLE test;
+
+INSERT INTO participant VALUES (11, '+79253616728', '2003-03-05', 'Коновалов Илья Николаевич', '1234567890', '77785032', 'male', 'no');
+
+GRANT ALL PRIVILEGES ON TABLE participant TO acc_user;
+
+ALTER USER acc_user PASSWORD 'test';
+
+6 лаба
+
+-- 2a. Пример (выбрать авто, цена ремонта которого превышает x)
+
+CREATE OR REPLACE FUNCTION get_dmg_cost(x REAL)
+RETURNS TABLE (
+  vehicle_id INT,
+  brand varchar(50),
+  model varchar(50),
+  cost INT
+) AS $$
+BEGIN
+  RETURN QUERY EXECUTE '
+    SELECT vehicle_id,brand, model, (damage_cost::numeric::int) AS cost
+    FROM vehicle JOIN participant ON vehicle_id = participant_id
+    WHERE (damage_cost::numeric::int) > $1'
+  USING x;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM get_dmg_cost(30000)
+
+-- 2b. Хранимая процедура для поиска информации по полному имени участника
+
+CREATE OR REPLACE FUNCTION get_part_name(x CHAR)
+RETURNS TABLE (
+  full_name VARCHAR,
+  phone VARCHAR,
+  bday DATE,
+  dl_number VARCHAR
+) AS $$
+BEGIN
+  RETURN QUERY EXECUTE '
+    SELECT full_name, phone, bday, dl_number
+    FROM participant
+    WHERE full_name = $1'
+  USING x;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM get_part_name('Зубенко Михаил Петрович')
+
+
+-- 2c. Хранимая процедуру для поиска автомобилей по диапазону цен на ремонт.
+
+CREATE OR REPLACE FUNCTION get_damage_cost_range(x INT, y INT)
+RETURNS TABLE (
+  brand VARCHAR,
+  model VARCHAR,
+  year_of_prod CHAR(4),
+  vin VARCHAR,
+  damage_cost INT
+) AS $$
+BEGIN
+  RETURN QUERY EXECUTE '
+    SELECT brand, model, year_of_prod, vin, (damage_cost::numeric::int) AS damage_cost
+    FROM vehicle
+    WHERE (damage_cost::numeric::int) BETWEEN $1 AND $2'
+  USING x, y;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM get_damage_cost_range(30000, 70000)
+
+
+-- 2d. Хранимая процедура для поиска ДТП по дате ДТП и диапазону дат ДТП.
+
+CREATE OR REPLACE FUNCTION get_accident_info(x DATE, y DATE)
+RETURNS TABLE (
+  accident_id INT,
+  city VARCHAR,
+  place VARCHAR,
+  accident_date DATE
+) AS $$
+BEGIN
+  RETURN QUERY EXECUTE '
+    SELECT accident_id, city, place, accident_date
+    FROM accident
+    JOIN officer ON accident.officer_id = officer.officer_id
+    WHERE accident_date BETWEEN $1 AND $2'
+  USING x, y;
+END;
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM get_accident_info('2022-01-01', '2022-12-31');
+
+/* 2e. По заданию:
+1) Выбрать все сведения об автомобилях двух указанных страховых. Номера страховых вводятся как параметры
+2) Получить информацию о количестве покупателей, оплативших
+заказ каждой платежной системой. */
+
+--запрос на выбор данных о клиентах, купивших игры 16 и 6
+/*select client_id, client_name, client_email
+from (orderbasket join ordertable on basket_order_id = order_id)
+join client on buyer_id = client_id where (basket_game_id = 6 or basket_game_id = 16)
+order by client_id*/
+
+-- Первая
+CREATE OR REPLACE FUNCTION get_insurance_info(x INT, y INT)
+RETURNS TABLE (
+  vehicle_id INT,
+  brand VARCHAR,
+  model VARCHAR,
+  vin VARCHAR
+) AS $$
+BEGIN
+  RETURN QUERY EXECUTE '
+    SELECT vehicle_id, brand, model, vin
+    FROM insurance
+    JOIN vehicle ON insurance.insurance_id = vehicle.insurance_id
+    WHERE insurance.insurance_id = $1 OR insurance.insurance_id = $2
+    ORDER BY vehicle_id'
+  USING x, y;
+END;
+$$ LANGUAGE plpgsql;
+SELECT * FROM get_insurance_info(1, 2);
+-- Вторая
+CREATE OR REPLACE FUNCTION ParticipantCityInfo(x char)
+RETURNS TABLE (
+	participant_id INT,
+	city VARCHAR
+)AS $$
+BEGIN
+  RETURN QUERY EXECUTE '
+	select participant_id, city from accident
+	JOIN participant_processing ON accident.accident_id = participant_processing.accident_id
+	WHERE city = $1
+	ORDER BY participant_id'
+	USING x;
+END;
+$$ LANGUAGE plpgsql;
+SELECT * FROM ParticipantCityInfo('Москва');
+
+-- 3. Триггер INSERT (participant_processing)
+CREATE OR REPLACE FUNCTION insert_function() RETURNS TRIGGER AS $$
+BEGIN
+RAISE NOTICE 'Inserted: %', NEW;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER insert_trigger AFTER INSERT ON participant_processing
+FOR EACH ROW
+EXECUTE FUNCTION insert_function();
+
+insert into participant_processing values
+(13,10,4,1)
+
+-- 4. Триггер DELETE (participant_processing)
+
+CREATE OR REPLACE FUNCTION delete_function() RETURNS TRIGGER AS $$
+declare
+	x varchar:='Данные удалены из таблицы';
+BEGIN
+
+RAISE NOTICE '%', x;
+return null;
+
+END;
+$$
+LANGUAGE plpgsql;
+
+
+create or replace trigger delete_trigger after delete on participant_processing execute procedure delete_function();
+DELETE FROM participant_processing WHERE group_id = 11;
+
+-- 5. Триггер UPDATE (client)
+
+CREATE OR REPLACE FUNCTION update_function() RETURNS TRIGGER AS $$
+declare
+	x varchar:='Таблица обновлена';
+BEGIN
+
+RAISE NOTICE '%', x;
+return null;
+
+END;
+$$
+LANGUAGE plpgsql;
+
+
+create or replace trigger update_trigger after update on participant execute procedure update_function();
+
+UPDATE participant SET full_name = 'test' WHERE full_name = 'Зубенко Михаил Петрович';
+
+-- 6. Создать триггер, который при удалении записи из таблицы frst сначала удаляет все связанные с ней записи из таблицы scnd, а затем удаляет саму запись из таблицы frst.
+CREATE TABLE frst (
+	frst_id serial primary key
+);
+CREATE TABLE scnd (
+	scnd_id serial primary key,
+	frst_id serial references  frst(frst_id)
+);
+CREATE OR REPLACE FUNCTION casc_drop() RETURNS TRIGGER AS $$
+BEGIN
+delete from scnd where frst_id = 1;
+return null;
+END;
+$$
+LANGUAGE plpgsql;
+
+create or replace trigger drop_trigger before delete on frst execute procedure casc_drop(); -- for each row?
+
+INSERT INTO frst values (1);
+INSERT INTO scnd values (1);
+delete FROM frst WHERE frst_id = 1;
+SELECT * FROM frst;
+SELECT * FROM scnd;
+
+-- 8. Создать триггер DDL, который предотвратит удаление или изменение таблиц в базе данных.
+
+drop table test
+
+CREATE FUNCTION deny_drop_change()
+RETURNS event_trigger
+LANGUAGE plpgsql
+AS $$
+BEGIN
+  RAISE EXCEPTION 'Changes to tables are not allowed!';
+END;
+$$;
+
+CREATE EVENT TRIGGER deny_drop_change_trigger
+ON ddl_command_start
+EXECUTE FUNCTION deny_drop_change();
+
+--ДОП ЗАДАНИЕ
+
+
+CREATE OR REPLACE FUNCTION update_data_function()
+RETURNS TRIGGER AS
+$$
+BEGIN
+	IF new.id <> old.id then
+		RAISE NOTICE 'Обновленные данные: %, время обновления: %', NEW.id, NOW();
+	end if;
+	IF new.test <> old.test then
+		RAISE NOTICE 'Обновленные данные: %, время обновления: %', NEW.test, NOW();
+	end if;
+END;
+$$
+LANGUAGE plpgsql;
+
+CREATE OR REPLACE TRIGGER update_data_trigger
+AFTER UPDATE ON temp_table
+FOR EACH ROW
+EXECUTE FUNCTION update_data_function();
+
+INSERT INTO temp_table values(3,'test');
+UPDATE temp_table SET test = 'test' WHERE test = 'something';

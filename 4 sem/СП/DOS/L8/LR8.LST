@@ -1,0 +1,495 @@
+Turbo Assembler	 Version 2.51	     05/04/10 00:43:39	    Page 1
+lr8.ASM
+
+
+
+      1				     ; Лабораторная работа №8
+      2				     ;===============================================================================
+      3	0000			     prgr segment
+      4
+      5				     assume CS:prgr,DS:data	 ; соответствие	сегментных регистров
+      6
+      7	0000  B8 0000s		     begin: mov	AX,data
+      8	0003  8E D8				mov DS,AX
+      9	0005  B8 0002			    mov	AX,02h
+     10	0008  CD 10			    int	10h
+     11
+     12	000A  B4 09				mov AH,09h
+     13	000C  BA 008Dr				mov DX,offset fengsh1
+     14	000F  CD 21				int 21h
+     15	0011  E8 0273				CALL CLRF
+     16	0014  B4 09				mov AH,09h
+     17	0016  BA 0045r				mov DX,offset fengsh0
+     18	0019  CD 21				int 21h
+     19	001B  E8 0269				CALL CLRF
+     20				     ; вывод на	экран регистра CS
+     21	001E  B4 09				mov AH,09h
+     22	0020  BA 011Cr				mov DX,offset regCS
+     23	0023  CD 21				int 21h
+     24	0025  8C C8				mov AX,CS
+     25	0027  E8 0188				CALL hex4hex
+     26	002A  B4 40				mov AH,40h
+     27	002C  B9 0004				mov CX,4
+     28	002F  BB 0001				mov BX,1
+     29	0032  BA 0039r				mov DX,offset hx
+     30	0035  CD 21				int 21h
+     31	0037  E8 024D				CALL CLRF
+     32				     ; вывод на	экран регистра DS
+     33	003A  B4 09				mov AH,09h
+     34	003C  BA 0121r				mov DX,offset regDS
+     35	003F  CD 21				int 21h
+     36	0041  8C D8				mov AX,DS
+     37	0043  E8 016C				CALL hex4hex
+     38	0046  B4 40				mov AH,40h
+     39	0048  B9 0004				mov CX,4
+     40	004B  BB 0001				mov BX,1
+     41	004E  BA 0039r				mov DX,offset hx
+     42	0051  CD 21				int 21h
+     43	0053  E8 0231				CALL CLRF
+     44				     ; вывод на	экран регистра SS
+     45	0056  B4 09				mov AH,09h
+     46	0058  BA 0126r				mov DX,offset regSS
+     47	005B  CD 21				int 21h
+     48	005D  8C D0				mov AX,SS
+     49	005F  E8 0150				CALL hex4hex
+     50	0062  B4 40				mov AH,40h
+     51	0064  B9 0004				mov CX,4
+     52	0067  BB 0001				mov BX,1
+     53	006A  BA 0039r				mov DX,offset hx
+     54	006D  CD 21				int 21h
+     55	006F  E8 0215				CALL CLRF
+     56				     ; вывод на	экран регистра ES
+     57	0072  B4 09				mov AH,09h
+Turbo Assembler	 Version 2.51	     05/04/10 00:43:39	    Page 2
+lr8.ASM
+
+
+
+     58	0074  BA 012Br				mov DX,offset regES
+     59	0077  CD 21				int 21h
+     60	0079  8C C0				mov AX,ES
+     61	007B  E8 0134				CALL hex4hex
+     62	007E  B4 40				mov AH,40h
+     63	0080  B9 0004				mov CX,4
+     64	0083  BB 0001				mov BX,1
+     65	0086  BA 0039r				mov DX,offset hx
+     66	0089  CD 21				int 21h
+     67	008B  E8 01F9				CALL CLRF
+     68				     ; вывод на	экран регистра SP
+     69	008E  B4 09				mov AH,09h
+     70	0090  BA 0130r				mov DX,offset regSP
+     71	0093  CD 21				int 21h
+     72	0095  8B C4				mov AX,SP
+     73	0097  E8 0118				CALL hex4hex
+     74	009A  B4 40				mov AH,40h
+     75	009C  B9 0004				mov CX,4
+     76	009F  BB 0001				mov BX,1
+     77	00A2  BA 0039r				mov DX,offset hx
+     78	00A5  CD 21				int 21h
+     79	00A7  E8 01DD				CALL CLRF
+     80				     ; вывод на	экран регистра SI
+     81	00AA  B4 09				mov AH,09h
+     82	00AC  BA 0135r				mov DX,offset regSI
+     83	00AF  CD 21				int 21h
+     84	00B1  8B C6				mov AX,SI
+     85	00B3  E8 00FC				CALL hex4hex
+     86	00B6  B4 40				mov AH,40h
+     87	00B8  B9 0004				mov CX,4
+     88	00BB  BB 0001				mov BX,1
+     89	00BE  BA 0039r				mov DX,offset hx
+     90	00C1  CD 21				int 21h
+     91	00C3  E8 01C1				CALL CLRF
+     92				     ; вывод на	экран регистра DI
+     93	00C6  B4 09				mov AH,09h
+     94	00C8  BA 013Ar				mov DX,offset regDI
+     95	00CB  CD 21				int 21h
+     96	00CD  8B C7				mov AX,DI
+     97	00CF  E8 00E0				CALL hex4hex
+     98	00D2  B4 40				mov AH,40h
+     99	00D4  B9 0004				mov CX,4
+    100	00D7  BB 0001				mov BX,1
+    101	00DA  BA 0039r				mov DX,offset hx
+    102	00DD  CD 21				int 21h
+    103	00DF  E8 01A5				CALL CLRF
+    104				     ; вывод на	экран регистра BP
+    105	00E2  B4 09				mov AH,09h
+    106	00E4  BA 013Fr				mov DX,offset regBP
+    107	00E7  CD 21				int 21h
+    108	00E9  8B C5				mov AX,BP
+    109	00EB  E8 00C4				CALL hex4hex
+    110	00EE  B4 40				mov AH,40h
+    111	00F0  B9 0004				mov CX,4
+    112	00F3  BB 0001				mov BX,1
+    113	00F6  BA 0039r				mov DX,offset hx
+    114	00F9  CD 21				int 21h
+Turbo Assembler	 Version 2.51	     05/04/10 00:43:39	    Page 3
+lr8.ASM
+
+
+
+    115
+    116	00FB  E8 0189				CALL CLRF
+    117	00FE  E8 0186				CALL CLRF
+    118	0101  B4 09				mov AH,09h
+    119	0103  BA 001Ar				mov DX,offset msg2
+    120	0106  CD 21				int 21h
+    121	0108  B4 08				mov AH,08h
+    122	010A  CD 21				int 21h
+    123	010C  33 C0				xor AX,AX
+    124	010E  B8 0002				mov AX,02h
+    125	0111  CD 10			    int	10h
+    126
+    127	0113  B4 09				mov AH,09h
+    128	0115  BA 00D5r				mov DX,offset fengsh2
+    129	0118  CD 21				int 21h
+    130	011A  33 DB				xor BX,BX
+    131	011C  BE 0000				mov SI,0
+    132	011F  E8 00C3				CALL inpthex
+    133	0122  3C 1B				cmp AL,27	     ; если мы сюда попали после нажатия ESC
+    134	0124  74 34				je close	     ; то завершить программу, пойдём в	close
+    135	0126  89 1E 003Dr			mov sg,BX
+    136	012A  B4 02				mov AH,02h
+    137	012C  B2 3A				mov DL,58
+    138	012E  CD 21				int 21h
+    139	0130  33 DB				xor BX,BX
+    140	0132  BE 0000				mov SI,0
+    141	0135  E8 00AD				CALL inpthex
+    142	0138  3C 1B				cmp AL,27
+    143	013A  74 1E				je close
+    144	013C  89 1E 003Fr			mov adr,BX
+    145	0140  E8 0144				CALL CLRF
+    146	0143  E8 0141				CALL CLRF
+    147	0146  A1 003Dr				mov AX,sg
+    148	0149  8E C0				mov ES,AX
+    149	014B  8B 1E 003Fr			mov BX,adr
+    150	014F  A1 003Fr				mov AX,adr
+    151	0152  50				push AX
+    152
+    153	0153  58				pop AX
+    154	0154  2D 0018				sub AX,24
+    155	0157  E8 00CD				CALL dumping
+    156
+    157	015A  E8 012A		     close: CALL CLRF
+    158	015D  B4 09				mov AH,09h
+    159	015F  BA 0000r				mov DX,offset msg
+    160	0162  CD 21				int 21h
+    161	0164  E8 012B			    CALL GETCH
+    162	0167  B8 0002				mov AX,02h
+    163	016A  CD 10			    int	10h
+    164
+    165	016C  B8 4C00			    mov	AX,4C00h
+    166	016F  CD 21				int 21h
+    167				     ; ------------------------------------------------------------------------------
+    168	0171			     hex2hex proc
+    169				     ; делим шестнадцатеричного	на 16 до упора
+    170	0171  B9 0000			     mov CX,0	; количество цифр в десятичном числе
+    171	0174  BB 0010			     mov BX,16	; основание системы счисления
+Turbo Assembler	 Version 2.51	     05/04/10 00:43:39	    Page 4
+lr8.ASM
+
+
+
+    172	0177  33 D2				     xor DX,DX
+    173	0179  3C 0A				     cmp AL,10
+    174	017B  73 11				     jae dvsn
+    175	017D  C6 06 0038r 30 90			     mov el[1],48
+    176	0183  F7 F3				     div BX
+    177	0185  B9 0001				     mov CX,1
+    178	0188  BE 0001				     mov SI,1
+    179	018B  EB 0F 90				     jmp z
+    180	018E  F7 F3		     dvsn:   div BX	; делим	AX на BX, результат в AX, остаток в DX
+    181	0190  52				 push DX    ; скинули остаток в	стек
+    182	0191  33 D2				 xor DX,DX  ; обнулили DX, иначе повлияет на деление
+    183	0193  41				 inc CX	    ; увеличили	счётчик	количества цифр	в числе
+    184	0194  85 C0				 test AX,AX ; если пока	ещё делится нацело,
+    185	0196  75 F6				 jnz dvsn   ; то делим ещё раз
+    186	0198  BE 0000			     mov SI,0
+    187	019B  5A		     ot:     pop DX	; подняли первую цифру десятичного числа
+    188	019C  80 FA 0A		     z:	     cmp DL,10
+    189	019F  73 06				     jae letter
+    190	01A1  83 C2 30				     add DX,48 ; получили её ASCII-код
+    191	01A4  EB 04 90				     jmp nx
+    192	01A7  83 C2 37		     letter: add DX,55
+    193	01AA  88 94 0037r	     nx:     mov el[SI],DL
+    194	01AE  46			     inc SI
+    195	01AF  E2 EA				 loop ot    ; повторять	CX раз (по количеству цифр)
+    196	01B1  C3			     RET
+    197	01B2			     hex2hex endp
+    198				     ; ------------------------------------------------------------------------------
+    199	01B2			     hex4hex proc
+    200	01B2  51			     push CX
+    201	01B3  33 C9				     xor CX,CX
+    202	01B5  B1 0C				     mov CL,12
+    203	01B7  BE 0000				     mov SI,0
+    204	01BA  50		     ipt:    push AX
+    205	01BB  D3 F8				     sar AX,CL
+    206	01BD  25 000F				     and AX,0Fh
+    207	01C0  3C 00				     cmp AL,0
+    208	01C2  75 06				     jne no
+    209	01C4  C6 84 0039r 30 90			     mov hx[SI],48
+    210	01CA  3C 0A		     no:     cmp AL,10
+    211	01CC  73 05				     jae lr
+    212	01CE  04 30				     add AL,48
+    213	01D0  EB 03 90				     jmp n
+    214	01D3  04 37		     lr:     add AL,55
+    215	01D5  88 84 0039r	     n:	     mov hx[SI],AL
+    216	01D9  46			     inc SI
+    217	01DA  58				     pop AX
+    218	01DB  80 E9 04				     sub CL,4
+    219	01DE  83 FE 04				 cmp SI,4
+    220	01E1  72 D7				     jb	ipt
+    221	01E3  59				     pop CX
+    222	01E4  C3			     RET
+    223	01E5			     hex4hex endp
+    224				     ; ------------------------------------------------------------------------------
+    225	01E5			     inpthex proc
+    226	01E5  B4 08		     inpt:   mov AH,08h		 ; функция ввода символа без его показа
+    227	01E7  CD 21			     int 21h
+    228	01E9  3C 0D				     cmp AL,13		 ; если	это ENTER,
+Turbo Assembler	 Version 2.51	     05/04/10 00:43:39	    Page 5
+lr8.ASM
+
+
+
+    229	01EB  74 F8				     je	inpt		 ; то обломайтунг, введено не 4	символа, по новой
+    230	01ED  3C 1B				     cmp AL,27		 ; если	вжали ESC,
+    231	01EF  74 35				     je	fin		 ; то на завершение
+    232	01F1  3C 30				     cmp AL,'0'		 ; если	код введённого символа...
+    233	01F3  72 F0				     jb	inpt		 ; меньше кода 0, то по	новой
+    234	01F5  3C 39				 cmp AL,'9'	     ; если код	введённого символа...
+    235	01F7  76 08				 jbe ok		     ; меньше или равен	коду 9,	то ништяк
+    236	01F9  3C 46				 cmp AL,'F'	     ; если код	введённого символа...
+    237	01FB  77 E8				 ja inpt	     ; больше кода F, то по новой
+    238	01FD  3C 41				 cmp AL,'A'	     ; если код	введённого символа...
+    239	01FF  72 E4				 jb inpt	     ; меньше кода A, то по новой
+    240	0201  B4 02		     ok:     mov AH,02h
+    241	0203  8A D0			     mov DL,AL		 ; засчитаем введённое и покажем
+    242	0205  CD 21				 int 21h
+    243	0207  3C 39				 cmp AL,'9'	     ; проверим, что это у нас
+    244	0209  77 08				 ja lttr	     ; если код	больше кода 9, то буква
+    245	020B  2C 30				 sub AL,'0'	     ; вычтем из кода 48, получим реально цифру
+    246	020D  25 000F				 and AX,0Fh	     ; затрём остальные	биты регистра
+    247	0210  EB 06 90				 jmp addd
+    248	0213  2C 37		     lttr:   sub AL,55		   ; а из буквы	вычитаем 55
+    249	0215  25 000F			     and AX,0Fh		 ; тоже	потёрли	все остальные биты
+    250	0218  B1 04		     addd:   mov CL,4		 ; умножить на 16,
+    251	021A  D3 E3			     sal BX,CL		 ; сдвинуть на 4 бита влево,
+    252	021C  0B D8				     or	BX,AX		 ; добавить новую цифру
+    253	021E  46				     inc SI
+    254	021F  83 FE 04				     cmp SI,4
+    255	0222  73 02				     jae fin		 ; если	уже 4 введено, то всё,
+    256	0224  EB BF				     jmp inpt		 ; а если нет, то до победного
+    257	0226  C3		     fin:    RET
+    258	0227			     inpthex endp
+    259				     ; ------------------------------------------------------------------------------
+    260	0227			     dumping proc
+    261	0227  B9 0010			     mov CX,16
+    262	022A  05 0018		     dump:   add AX,24
+    263	022D  50			     push AX
+    264	022E  53			     push BX
+    265	022F  51			     push CX
+    266	0230  E8 FF7F				     CALL hex4hex
+    267	0233  B4 40				     mov AH,40h
+    268	0235  B9 0004				     mov CX,4
+    269	0238  BB 0001				     mov BX,1
+    270	023B  BA 0039r				     mov DX,offset hx
+    271	023E  CD 21				     int 21h
+    272	0240  B4 09				     mov AH,09h
+    273	0242  BA 0041r				     mov DX,offset def
+    274	0245  CD 21				     int 21h
+    275	0247  59				     pop CX
+    276	0248  5B				     pop BX
+    277	0249  51			     push CX
+    278	024A  B9 0018				 mov CX,24
+    279	024D  33 C0		     dmp:    xor AX,AX
+    280	024F  53			     push BX
+    281	0250  26: 8A 07				 mov AL,ES:BX
+    282	0253  50			     push AX
+    283	0254  51				 push CX
+    284	0255  E8 FF19				 CALL hex2hex
+    285	0258  B4 40				 mov AH,40h
+Turbo Assembler	 Version 2.51	     05/04/10 00:43:39	    Page 6
+lr8.ASM
+
+
+
+    286	025A  BB 0001				 mov BX,1
+    287	025D  B9 0002				 mov CX,2
+    288	0260  BA 0037r				 mov DX,offset el
+    289	0263  CD 21				 int 21h
+    290	0265  C6 06 0037r 30 90			 mov el[0],48
+    291	026B  C6 06 0038r 30 90			 mov el[1],48
+    292	0271  B4 02				 mov AH,02h
+    293	0273  B2 20				 mov DL,32
+    294	0275  CD 21				 int 21h
+    295	0277  59				 pop CX
+    296	0278  58				 pop AX
+    297	0279  40				 inc AX
+    298	027A  5B				 pop BX
+    299	027B  43				 inc BX
+    300	027C  E2 CF				 loop dmp
+    301	027E  50				 push AX
+    302	027F  E8 0005				 CALL CLRF
+    303	0282  58				 pop AX
+    304	0283  59				 pop CX
+    305	0284  58				     pop AX
+    306	0285  E2 A3				 loop dump
+    307	0287			     dumping endp
+    308				     ; ------------------------------------------------------------------------------
+    309	0287			     CLRF proc			 ; процедура переноса строки и возврата	каретки
+    310	0287  B4 02			  mov AH,02h
+    311	0289  B2 0A			  mov DL,10
+    312	028B  CD 21			      int 21h
+    313	028D  B2 0D			  mov DL,13		 ; символ возврата каретки
+    314	028F  CD 21			      int 21h
+    315	0291  C3			      RET
+    316	0292			     CLRF endp
+    317				     ; ------------------------------------------------------------------------------
+    318	0292			     GETCH proc			 ; процедура ввода символа
+    319	0292  B4 01			       mov AH,01h
+    320	0294  CD 21			       int 21h
+    321	0296  C3			       RET
+    322	0297			     GETCH endp
+    323				     ; ------------------------------------------------------------------------------
+    324	0297			     prgr ends			 ; конец сегмента команд
+    325				     ; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    326	0000			     data segment		 ; начало сегмента данных
+    327	0000  50 72 65 73 73 20	61+	      msg     db 'Press	any key	to exit... $'
+    328	      6E 79 20 6B 65 79	20+
+    329	      74 6F 20 65 78 69	74+
+    330	      2E 2E 2E 20 24
+    331	001A  70 72 65 73 73 20	61+	      msg2    db 'press	any key	to continue...$'
+    332	      6E 79 20 6B 65 79	20+
+    333	      74 6F 20 63 6F 6E	74+
+    334	      69 6E 75 65 2E 2E	2E+
+    335	      24
+    336	0037  02*(30)			      el      db 2 dup ('0')
+    337	0039  04*(20)			      hx      db 4 dup (32)
+    338	003D  0000			      sg      dw 0
+    339	003F  0000			      adr     dw 0
+    340	0041  20 2D 20 24		      def     db ' - $'
+    341	0045  2D 2D 2D 2D 2D 2D	2D+	      fengsh0 db '-----------------------------------------------------------------------$'
+    342	      2D 2D 2D 2D 2D 2D	2D+
+Turbo Assembler	 Version 2.51	     05/04/10 00:43:39	    Page 7
+lr8.ASM
+
+
+
+    343	      2D 2D 2D 2D 2D 2D	2D+
+    344	      2D 2D 2D 2D 2D 2D	2D+
+    345	      2D 2D 2D 2D 2D 2D	2D+
+    346	      2D 2D 2D 2D 2D 2D	2D+
+    347	      2D 2D 2D 2D 2D 2D	2D+
+    348	      2D 2D 2D 2D 2D 2D	2D+
+    349	      2D 2D 2D 2D 2D 2D	2D+
+    350	      2D 2D 2D 2D 2D 2D	2D+
+    351	      2D 24
+    352	008D  54 68 69 73 20 70	72+	      fengsh1 db 'This program makes dump of RAM. Now, it will show contents of	registers$'
+    353	      6F 67 72 61 6D 20	6D+
+    354	      61 6B 65 73 20 64	75+
+    355	      6D 70 20 6F 66 20	52+
+    356	      41 4D 2E 20 4E 6F	77+
+    357	      2C 20 69 74 20 77	69+
+    358	      6C 6C 20 73 68 6F	77+
+    359	      20 63 6F 6E 74 65	6E+
+    360	      74 73 20 6F 66 20	72+
+    361	      65 67 69 73 74 65	72+
+    362	      73 24
+    363	00D5  4E 6F 77 2C 20 65	6E+	      fengsh2 db 'Now, enter the adress	(in HEX, type FAR): $'
+    364	      74 65 72 20 74 68	65+
+    365	      20 61 64 72 65 73	73+
+    366	      20 28 69 6E 20 48	45+
+    367	      58 2C 20 74 79 70	65+
+    368	      20 46 41 52 29 3A	20+
+    369	      24
+    370	0100  44 75 6D 70 20 6F	66+	      fengsh3 db 'Dump of memory from $'
+    371	      20 6D 65 6D 6F 72	79+
+    372	      20 66 72 6F 6D 20	24
+    373	0115  20 74 69 6C 6C 20	24	      fengsh4 db ' till	$'
+    374	011C  43 53 3A 20 24		      regCS   db 'CS: $'
+    375	0121  44 53 3A 20 24		      regDS   db 'DS: $'
+    376	0126  53 53 3A 20 24		      regSS   db 'SS: $'
+    377	012B  45 53 3A 20 24		      regES   db 'ES: $'
+    378	0130  53 50 3A 20 24		      regSP   db 'SP: $'
+    379	0135  53 49 3A 20 24		      regSI   db 'SI: $'
+    380	013A  44 49 3A 20 24		      regDI   db 'DI: $'
+    381	013F  42 50 3A 20 24		      regBP   db 'BP: $'
+    382	0144			     data ends			 ; конец сегмента данных
+    383				     ; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    384	0000			     stk segment stack		 ; начало сегмента стека
+    385	0000  0100*(00)			 db 256	dup (0)		 ; резервирование 256 байт для стека
+    386	0100			     stk ends			 ; конец сегмента стека
+    387				     ; -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    388				     end begin			 ; конец текста	программы, установка точки входа
+Turbo Assembler	 Version 2.51	     05/04/10 00:43:39	    Page 8
+Symbol Table
+
+
+
+
+Symbol Name			  Type	 Value
+
+??DATE				  Text	 "05/04/10"
+??FILENAME			  Text	 "lr8	  "
+??TIME				  Text	 "00:43:39"
+??VERSION			  Number 0205
+@CPU				  Text	 0101H
+@CURSEG				  Text	 STK
+@FILENAME			  Text	 LR8
+@WORDSIZE			  Text	 2
+ADDD				  Near	 PRGR:0218
+ADR				  Word	 DATA:003F
+BEGIN				  Near	 PRGR:0000
+CLOSE				  Near	 PRGR:015A
+CLRF				  Near	 PRGR:0287
+DEF				  Byte	 DATA:0041
+DMP				  Near	 PRGR:024D
+DUMP				  Near	 PRGR:022A
+DUMPING				  Near	 PRGR:0227
+DVSN				  Near	 PRGR:018E
+EL				  Byte	 DATA:0037
+FENGSH0				  Byte	 DATA:0045
+FENGSH1				  Byte	 DATA:008D
+FENGSH2				  Byte	 DATA:00D5
+FENGSH3				  Byte	 DATA:0100
+FENGSH4				  Byte	 DATA:0115
+FIN				  Near	 PRGR:0226
+GETCH				  Near	 PRGR:0292
+HEX2HEX				  Near	 PRGR:0171
+HEX4HEX				  Near	 PRGR:01B2
+HX				  Byte	 DATA:0039
+INPT				  Near	 PRGR:01E5
+INPTHEX				  Near	 PRGR:01E5
+IPT				  Near	 PRGR:01BA
+LETTER				  Near	 PRGR:01A7
+LR				  Near	 PRGR:01D3
+LTTR				  Near	 PRGR:0213
+MSG				  Byte	 DATA:0000
+MSG2				  Byte	 DATA:001A
+N				  Near	 PRGR:01D5
+NO				  Near	 PRGR:01CA
+NX				  Near	 PRGR:01AA
+OK				  Near	 PRGR:0201
+OT				  Near	 PRGR:019B
+REGBP				  Byte	 DATA:013F
+REGCS				  Byte	 DATA:011C
+REGDI				  Byte	 DATA:013A
+REGDS				  Byte	 DATA:0121
+REGES				  Byte	 DATA:012B
+REGSI				  Byte	 DATA:0135
+REGSP				  Byte	 DATA:0130
+REGSS				  Byte	 DATA:0126
+SG				  Word	 DATA:003D
+Z				  Near	 PRGR:019C
+Turbo Assembler	 Version 2.51	     05/04/10 00:43:39	    Page 9
+Symbol Table
+
+
+
+
+Groups & Segments		  Bit Size Align  Combine Class
+
+DATA				  16  0144 Para	  none
+PRGR				  16  0297 Para	  none
+STK				  16  0100 Para	  Stack
+

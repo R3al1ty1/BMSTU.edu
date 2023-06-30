@@ -1,0 +1,18 @@
+﻿Построение начато 30.04.2021 15:45:02.
+     1>Проект "D:\ПКШ_ЛР4_5\Lab4_1\Lab4_1.vcxproj" в узле 2 (целевые объекты Build).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt DBDate5.cpp DBTableTxt5.cpp funcs.cpp testLab41_51.cpp
+         testLab41_51.cpp
+         funcs.cpp
+         DBTableTxt5.cpp
+     1>d:\пкш_лр4_5\lab4_1\dbtabletxt5.cpp(112): warning C4018: <: несоответствие типов со знаком и без знака
+     1>d:\пкш_лр4_5\lab4_1\dbtabletxt5.cpp(123): warning C4018: <: несоответствие типов со знаком и без знака
+     1>d:\пкш_лр4_5\lab4_1\dbtabletxt5.cpp(138): warning C4018: <: несоответствие типов со знаком и без знака
+     1>d:\пкш_лр4_5\lab4_1\dbtabletxt5.cpp(160): warning C4018: <: несоответствие типов со знаком и без знака
+     1>d:\пкш_лр4_5\lab4_1\dbtabletxt5.cpp(169): warning C4018: <: несоответствие типов со знаком и без знака
+     1>d:\пкш_лр4_5\lab4_1\dbtabletxt5.cpp(208): warning C4018: <: несоответствие типов со знаком и без знака
+     1>d:\пкш_лр4_5\lab4_1\dbtabletxt5.cpp(246): warning C4018: <: несоответствие типов со знаком и без знака
+     1>d:\пкш_лр4_5\lab4_1\dbtabletxt5.cpp(247): warning C4018: <: несоответствие типов со знаком и без знака
+         DBDate5.cpp
+         Создание кода...
+     1>d:\пкш_лр4_5\lab4_1\funcs.cpp(49): warning C4715: dbmsLib::ReadDB5: значение возвращается не при всех путях выполнения

@@ -1,0 +1,18 @@
+﻿Сборка начата 09.02.2021 17:29:04.
+     1>Проект "D:\temp\pvr\lab1\StaticLibrary\MathFuncsLib\MathFuncsLib.vcxproj" в узле 2 (целевые объекты Build).
+     1>InitializeBuildStatus:
+         Создание "Debug\MathFuncsLib.unsuccessfulbuild", так как было задано "AlwaysCreate".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt MathFuncsLib.cpp
+         MathFuncsLib.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"D:\temp\pvr\lab1\StaticLibrary\Debug\MathFuncsLib.lib" /NOLOGO Debug\MathFuncsLib.obj
+         MathFuncsLib.vcxproj -> D:\temp\pvr\lab1\StaticLibrary\Debug\MathFuncsLib.lib
+       FinalizeBuildStatus:
+         Файл "Debug\MathFuncsLib.unsuccessfulbuild" удаляется.
+         Обращение к "Debug\MathFuncsLib.lastbuildstate".
+     1>Построение проекта "D:\temp\pvr\lab1\StaticLibrary\MathFuncsLib\MathFuncsLib.vcxproj" завершено (целевые объекты Build).
+
+Сборка успешно завершена.
+
+Затраченное время: 00:00:00.56

@@ -1,0 +1,34 @@
+﻿Построение начато 08.06.2022 18:35:49.
+     1>Проект "C:\Users\jdmsh\Desktop\ПКШ_ЛР5_5\Lab5_2\Lab5_2.vcxproj" в узле 2 (целевые объекты Build).
+     1>ClCompile:
+         D:\VisualStudio2012\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt DBDate5.cpp DBTableBin.cpp DBTableSet.cpp DBTableTxt5.cpp testLab52_51.cpp
+         testLab52_51.cpp
+     1>c:\users\jdmsh\desktop\пкш_лр5_5\lab5_2\testlab52_51.cpp(60): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\jdmsh\desktop\пкш_лр5_5\lab5_2\testlab52_51.cpp(87): warning C4101: ind: неиспользованная локальная переменная
+         DBTableTxt5.cpp
+     1>c:\users\jdmsh\desktop\пкш_лр5_5\lab5_2\dbtabletxt5.cpp(123): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\jdmsh\desktop\пкш_лр5_5\lab5_2\dbtabletxt5.cpp(136): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\jdmsh\desktop\пкш_лр5_5\lab5_2\dbtabletxt5.cpp(150): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\jdmsh\desktop\пкш_лр5_5\lab5_2\dbtabletxt5.cpp(172): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\jdmsh\desktop\пкш_лр5_5\lab5_2\dbtabletxt5.cpp(181): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\jdmsh\desktop\пкш_лр5_5\lab5_2\dbtabletxt5.cpp(253): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\jdmsh\desktop\пкш_лр5_5\lab5_2\dbtabletxt5.cpp(254): warning C4018: <: несоответствие типов со знаком и без знака
+         DBTableSet.cpp
+         DBTableBin.cpp
+         DBDate5.cpp
+         Создание кода...
+     1>c:\users\jdmsh\desktop\пкш_лр5_5\lab5_2\dbtableset.cpp(52): warning C4715: dbmsLib5::DBTableSet5::ReadDB5: значение возвращается не при всех путях выполнения
+       Link:
+         D:\VisualStudio2012\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\jdmsh\Desktop\ПКШ_ЛР5_5\Debug\Lab5_2.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\jdmsh\Desktop\ПКШ_ЛР5_5\Debug\Lab5_2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\jdmsh\Desktop\ПКШ_ЛР5_5\Debug\Lab5_2.lib" /MACHINE:X86 Debug\DBDate5.obj
+         Debug\DBTableBin.obj
+         Debug\DBTableSet.obj
+         Debug\DBTableTxt5.obj
+         Debug\testLab52_51.obj
+         dbmsLib_v2.lib
+     1>dbmsLib_v2.lib(DBDate.obj) : warning LNK4099: "vc110.pdb" PDB не найден с "dbmsLib_v2.lib(DBDate.obj)" или на "C:\Users\jdmsh\Desktop\ПКШ_ЛР5_5\Debug\vc110.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
+         Lab5_2.vcxproj -> C:\Users\jdmsh\Desktop\ПКШ_ЛР5_5\Debug\Lab5_2.exe
+     1>Построение проекта "C:\Users\jdmsh\Desktop\ПКШ_ЛР5_5\Lab5_2\Lab5_2.vcxproj" завершено (целевые объекты Build).
+
+Построение успешно завершено.
+
+Затраченное время: 00:00:03.55

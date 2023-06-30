@@ -1,0 +1,28 @@
+﻿Построение начато 08.06.2022 18:34:42.
+     1>Проект "C:\Users\jdmsh\Desktop\ПКШ_ЛР3_5\Lab3_2\Lab3_2.vcxproj" в узле 2 (целевые объекты Build).
+     1>ClCompile:
+         D:\VisualStudio2012\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt DBDate5.cpp DBTableTxt5.cpp testLab31.cpp
+         testLab31.cpp
+     1>c:\users\jdmsh\desktop\пкш_лр3_5\lab3_2\testlab31.cpp(73): warning C4101: ind: неиспользованная локальная переменная
+         DBTableTxt5.cpp
+     1>c:\users\jdmsh\desktop\пкш_лр3_5\lab3_2\dbtabletxt5.cpp(112): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\jdmsh\desktop\пкш_лр3_5\lab3_2\dbtabletxt5.cpp(123): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\jdmsh\desktop\пкш_лр3_5\lab3_2\dbtabletxt5.cpp(138): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\jdmsh\desktop\пкш_лр3_5\lab3_2\dbtabletxt5.cpp(160): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\jdmsh\desktop\пкш_лр3_5\lab3_2\dbtabletxt5.cpp(169): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\jdmsh\desktop\пкш_лр3_5\lab3_2\dbtabletxt5.cpp(208): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\jdmsh\desktop\пкш_лр3_5\lab3_2\dbtabletxt5.cpp(246): warning C4018: <: несоответствие типов со знаком и без знака
+     1>c:\users\jdmsh\desktop\пкш_лр3_5\lab3_2\dbtabletxt5.cpp(247): warning C4018: <: несоответствие типов со знаком и без знака
+         DBDate5.cpp
+         Создание кода...
+       Link:
+         D:\VisualStudio2012\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\jdmsh\Desktop\ПКШ_ЛР3_5\Debug\Lab3_2.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\jdmsh\Desktop\ПКШ_ЛР3_5\Debug\Lab3_2.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\jdmsh\Desktop\ПКШ_ЛР3_5\Debug\Lab3_2.lib" /MACHINE:X86 Debug\DBDate5.obj
+         Debug\DBTableTxt5.obj
+         Debug\testLab31.obj
+         dbmsStatLib_v1_1.lib
+         Lab3_2.vcxproj -> C:\Users\jdmsh\Desktop\ПКШ_ЛР3_5\Debug\Lab3_2.exe
+     1>Построение проекта "C:\Users\jdmsh\Desktop\ПКШ_ЛР3_5\Lab3_2\Lab3_2.vcxproj" завершено (целевые объекты Build).
+
+Построение успешно завершено.
+
+Затраченное время: 00:00:02.32

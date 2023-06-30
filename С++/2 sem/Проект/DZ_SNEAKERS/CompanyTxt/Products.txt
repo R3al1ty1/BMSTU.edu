@@ -1,0 +1,8 @@
+Products|ProductID
+ProductID|String|14|UnitBuy|Double|12|UnitInStock|Int32|8|UnitSell|Double|12|
+          Nike|          15|      10|       21.03
+    Timberland|          20|      12|        32.6
+   New Balance|          25|      32|       45.96
+        Adidas|          12|       5|          12
+    Balenciaga|          20|      20|        30.9
+         Asics|          15|       7|       11.31

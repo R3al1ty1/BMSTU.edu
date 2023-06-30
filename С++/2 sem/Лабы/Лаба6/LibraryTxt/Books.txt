@@ -1,0 +1,7 @@
+Books|BookID
+Author|String|12|BookID|Int32|12|Number|Int32|8|Quantity|Int32|8|Title|String|16
+       James|       1|      30|      46|           Angem
+       Vasya|       2|      12|      36|           Matan
+       James|       3|      10|      51|          Skazki
+     Evgeniy|       4|      30|      46|           Bamby
+        Gena|       5|      40|      51|           Cheba

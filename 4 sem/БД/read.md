@@ -1,0 +1,1 @@
+Курсовая по БД лежит на GitHub'е, если лень искать: https://github.com/R3al1ty1/AccidentsManager

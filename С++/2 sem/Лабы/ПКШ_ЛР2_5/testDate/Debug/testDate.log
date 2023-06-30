@@ -1,0 +1,13 @@
+﻿Построение начато 08.06.2022 18:34:13.
+     1>Проект "C:\Users\jdmsh\Desktop\ПКШ_ЛР2_5\testDate\testDate.vcxproj" в узле 2 (целевые объекты Build).
+     1>ClCompile:
+         D:\VisualStudio2012\VC\bin\CL.exe /c /ID:\temp\pvr\lab2\testDate /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt DBDate5.cpp testDB.cpp
+         testDB.cpp
+         DBDate5.cpp
+     1>c:\users\jdmsh\desktop\пкш_лр2_5\testdate\dbdate5.cpp(1): fatal error C1083: Не удается открыть файл включение: dbmsLib5.h: No such file or directory
+         Создание кода...
+     1>Построение проекта "C:\Users\jdmsh\Desktop\ПКШ_ЛР2_5\testDate\testDate.vcxproj" завершено (целевые объекты Build) с ошибкой.
+
+Сбой построения.
+
+Затраченное время: 00:00:00.94

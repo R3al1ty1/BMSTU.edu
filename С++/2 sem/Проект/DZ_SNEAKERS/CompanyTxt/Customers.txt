@@ -1,0 +1,9 @@
+Customers|CustomerID
+ContactName|String|20|PhoneNumber|String|16|CustomerID|String|8|
+      Ilya Konovalov| 8 800-361-67-28|   RICMA
+      Cristoph Waltz| 8 800-125-35-37|   ROMEY
+  Shako Davitashvili| 8 800 555 35 35|  SHAKOD
+      Artem Milevich| 8 800-125-35-37|  OREMBA
+           Max Fonin| 8 915-228-32-48|   FOMAX
+       Lip Gallagher| 8 985-228-14-88|   SANTG
+        Ivan Sidorov| 8 800-565-38-43|   IVSID

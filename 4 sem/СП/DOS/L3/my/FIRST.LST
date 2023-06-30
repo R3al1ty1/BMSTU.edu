@@ -1,0 +1,95 @@
+Turbo Assembler	 Version 3.1	    03/12/23 19:02:54	    Page 1
+first.ASM
+
+
+
+      1	0000			     MYCODE SEGMENT 'CODE'
+      2					 ASSUME	CS:MYCODE
+      3					 PUBLIC	sym
+      4	0000  80		     sym DB 'А'
+      5	0001			     START:
+      6				     ; Загрузка	сегментного регистра данных DS
+      7	0001  0E			  PUSH CS ;code	segment
+      8	0002  1F			  POP  DS ;data	segment
+      9
+     10	0003  E8 0044			      CALL CLRSCR
+     11
+     12	0006  2E: 8A 16	0000r		  MOV dl, sym
+     13	000B  E8 002C			  CALL PUTCH
+     14
+     15	000E  E8 002E			      CALL CRLF
+     16
+     17	0011  2E: 80 06	0000r 01	      ADD sym, 1
+     18	0017  2E: 8A 16	0000r		      MOV DL, sym
+     19	001C  E8 001B			  CALL PUTCH
+     20
+     21	001F  E8 001D			      CALL CRLF
+     22
+     23	0022  2E: 80 06	0000r 01	      ADD sym, 1
+     24	0028  2E: 8A 16	0000r		      MOV DL, sym
+     25	002D  E8 000A			  CALL PUTCH
+     26
+     27				     ; Ожидание	ввода
+     28	0030  B4 01			 MOV AH, 01H
+     29	0032  CD 21			 INT 21H
+     30
+     31				     ; Выход из	программы
+     32	0034  B0 00			  MOV AL, 0
+     33	0036  B4 4C			  MOV AH, 4CH
+     34	0038  CD 21			  INT 21H
+     35
+     36	003A				     PUTCH PROC
+     37	003A  B4 02				     MOV AH, 02
+     38	003C  CD 21				     INT 21H
+     39	003E  C3				     RET
+     40	003F				     PUTCH ENDP
+     41
+     42	003F				     CRLF PROC
+     43	003F  B2 0A				     MOV DL , 10
+     44	0041  E8 FFF6				     CALL PUTCH
+     45	0044  B2 0D				     MOV DL , 13
+     46	0046  E8 FFF1				     CALL PUTCH
+     47	0049  C3				     RET
+     48	004A				     CRLF ENDP
+     49
+     50	004A				     CLRSCR PROC
+     51					     ; AL=режим
+     52					     ; 2: текст	     80x25   16/8 полутона   CGA,EGA  b800  Composite
+     53	004A  B0 02				     mov al, 2
+     54	004C  CD 10				     int 10h
+     55	004E  C3				     ret
+     56	004F				     CLRSCR ENDP
+     57
+Turbo Assembler	 Version 3.1	    03/12/23 19:02:54	    Page 2
+first.ASM
+
+
+
+     58	004F			     MYCODE ENDS
+     59				     END START
+Turbo Assembler	 Version 3.1	    03/12/23 19:02:54	    Page 3
+Symbol Table
+
+
+
+
+Symbol Name			  Type	 Value
+
+??DATE				  Text	 "03/12/23"
+??FILENAME			  Text	 "first	  "
+??TIME				  Text	 "19:02:54"
+??VERSION			  Number 030A
+@CPU				  Text	 0101H
+@CURSEG				  Text	 MYCODE
+@FILENAME			  Text	 FIRST
+@WORDSIZE			  Text	 2
+CLRSCR				  Near	 MYCODE:004A
+CRLF				  Near	 MYCODE:003F
+PUTCH				  Near	 MYCODE:003A
+START				  Near	 MYCODE:0001
+SYM				  Byte	 MYCODE:0000
+
+Groups & Segments		  Bit Size Align  Combine Class
+
+MYCODE				  16  004F Para	  none	  CODE
+

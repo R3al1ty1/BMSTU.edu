@@ -1,0 +1,3 @@
+﻿  Source.cpp
+C:\Users\Lenovo\Desktop\УчебаМГТУ\ИУ5-15Б Большаков\лаб4\лаб4_номер3\лаб4_номер3\Source.cpp(70,16): warning C4244: аргумент: преобразование "double" в "std::streamsize", возможна потеря данных
+  лаб4_номер3.vcxproj -> C:\Users\Lenovo\Desktop\УчебаМГТУ\ИУ5-15Б Большаков\лаб4\лаб4_номер3\Debug\лаб4_номер3.exe

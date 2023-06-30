@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MathFuncsLib", "MathFuncsLib\MathFuncsLib.vcxproj", "{1DF52E3F-0021-44E3-B926-204A379969E5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MyExecRefsLib", "MyExecRefsLib\MyExecRefsLib.vcxproj", "{D02AC2A1-0719-4519-871F-CC4A1E0EDDFF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DF52E3F-0021-44E3-B926-204A379969E5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1DF52E3F-0021-44E3-B926-204A379969E5}.Debug|Win32.Build.0 = Debug|Win32
+		{1DF52E3F-0021-44E3-B926-204A379969E5}.Release|Win32.ActiveCfg = Release|Win32
+		{1DF52E3F-0021-44E3-B926-204A379969E5}.Release|Win32.Build.0 = Release|Win32
+		{D02AC2A1-0719-4519-871F-CC4A1E0EDDFF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D02AC2A1-0719-4519-871F-CC4A1E0EDDFF}.Debug|Win32.Build.0 = Debug|Win32
+		{D02AC2A1-0719-4519-871F-CC4A1E0EDDFF}.Release|Win32.ActiveCfg = Release|Win32
+		{D02AC2A1-0719-4519-871F-CC4A1E0EDDFF}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
