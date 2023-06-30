@@ -4,7 +4,7 @@ import datetime
 
 def getweather(city):
     try:
-        token = '09a6752dd2fe68a2eda560735e8898d3'
+        token = 'вставь свой токен'
         url = f'http://api.openweathermap.org/geo/1.0/direct?q={city}&limit=1&appid={token}'
         r = requests.get(url)
         colData = r.json()

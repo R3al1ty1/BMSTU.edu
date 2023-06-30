@@ -5,7 +5,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 
-tgToken = '5874568638:AAEZl_PPbWS1w1LpRWZEhKlSeSXwpxfhJS0'
+tgToken = 'вставь свой токен'
 bot = Bot(token=tgToken)
 dp = Dispatcher(bot, storage= MemoryStorage())
 
@@ -78,7 +78,7 @@ async def partProcessCity(message: types.Message, state: FSMContext):
     await state.finish() # <-- Here we get the name
     city = message.text
     try:
-        token = '09a6752dd2fe68a2eda560735e8898d3'
+        token = 'вставь свой токен'
         url = f'http://api.openweathermap.org/geo/1.0/direct?q={city}&limit=1&appid={token}'
         r = requests.get(url)
         colData = r.json()
